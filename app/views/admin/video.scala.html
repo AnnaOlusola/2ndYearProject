@@ -1,0 +1,112 @@
+@(user: models.users.User, video: List [models.Video], env: play.api.Environment)
+@adminMain("Video", user){
+
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <title>Diet</title>
+            <meta charset="utf-8">
+            <link rel="stylesheet" type="text/css" href="ca.css">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+
+                <!-- <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("stylesheet/ca.css")">-->
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <link href="https://fonts.googleapis.com/css?family=Ranga" rel="stylesheet">
+            <style>
+            /* Remove the navbar's default margin-bottom and rounded borders */
+            .navbar {
+                margin-bottom: 0;
+                border-radius: 0;
+            }
+            footer{
+                background-color:#999999;
+            }
+            .footerinfo{
+                padding-top: 1em;
+            }
+            footer a{
+                color: black;
+            }
+
+            footer a:visited{
+                color: black;
+            }
+
+            footer a:hover{
+                color: white;
+            }
+            footer p{
+                color: black;
+
+            }
+            </style>
+        </head>
+        <body>
+
+
+                <!--Start of 6 small squares-->
+            <div class="container text-center"><br>
+                <div class="row">
+
+                    <div class="col-sm-5">
+                        <p><b>ARMS</b></p>
+
+                        <iframe width="420" height="345" src="https://youtu.be/cF0niVnmMY0" allowfullscreen>
+                        </iframe>
+                        <a href="@routes.AdminController.addVideo()">
+                            <button class="btn btn-primary">Change Video</button>
+                        </a>
+                    </div><!--column end-->
+
+                    <div class="col-sm-2">
+
+                    </div><!--column end-->
+
+                    <div class="col-sm-5">
+                        <p><b>SHOULDERS</b></p>
+                        <iframe width="420" height="345" src="https://www.youtube.com/embed/pnxdMACFtvo" allowfullscreen>
+                        </iframe>
+                        <a href="@routes.AdminController.addVideo()">
+                            <button class="btn btn-primary">Change Video</button>
+                        </a>
+                    </div><!--column end-->
+
+                </div><!--row-->
+
+                    <!--new row-->
+                <div class="row">
+
+                    <div class="col-sm-5">
+                        <iframe width="420" height="345" src="https://www.youtube.com/embed/hxjKZcOT17E" allowfullscreen">
+                        </iframe>
+                        <p><b>ABS</b></p>
+                        <a href="@routes.AdminController.addVideo()">
+                            <button class="btn btn-primary">Change Video</button>
+                        </a>
+                    </div><!--column end-->
+
+                    <div class="col-sm-2">
+
+                    </div><!--column end-->
+
+                    <div class="col-sm-5">
+                        <iframe width="420" height="345" src="https://www.youtube.com/embed/zT50JEqjRN8" allowfullscreen">
+                        </iframe>
+                        <b>LEGS</b></p>
+                        <a href="@routes.AdminController.addVideo()">
+                            <button class="btn btn-primary">Change Video</button>
+                        </a>
+                    </div><!--column end-->
+
+                </div><!--row end-->
+
+
+            </div><!--container end-->
+            <br>
+
+        </body>
+    </html>
+}

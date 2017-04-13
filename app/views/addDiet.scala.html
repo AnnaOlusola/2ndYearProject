@@ -1,0 +1,23 @@
+@import helper._
+@(user: models.users.User, addDietForm: Form[models.Diet])
+@main("Add Diet", user){
+
+    <h3> Add Diet </h3>
+
+
+    @form(action = routes.AdminController.addDietSubmit(), 'class -> "form-horizontal", 'role ->"form") {
+
+        @inputText(addDietForm("src"), '_label -> "Add src", 'class -> "form-control")
+
+
+        <div class="actions">
+            <input type = "submit" value = "Add Diet" class="btn btn-primary">
+            <a href="@routes.AdminController.diet()"
+            <button class="btn btn-warning"> Cancel </button>
+            </a>
+        </div>
+
+    }
+
+
+}

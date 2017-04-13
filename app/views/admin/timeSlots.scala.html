@@ -1,0 +1,64 @@
+@(user: models.users.User, slots: List[models.TimeSlot])
+@adminMain("TimeSlots", user){
+
+<div class="row">
+
+
+
+@if(flash.containsKey("success")) {
+<div class="alert alert-success">
+@flash.get("success")
+</div
+
+}
+<div class="col-sm-10">
+<table class="table table-bordered table-hover table-condensed">
+<thead>
+
+<tr>
+<th>Date</th>
+<th>Day</th>
+<th>Time</th>
+<th>Trainer</th>
+<th>Duration</th>
+<th>Places available</th>
+</tr>
+</thead>
+<tbody>
+@for(p <- slots) {
+<tr>
+<td>@p.getDate.format("dd-MMM-YYYY")</td>
+<td>@p.getDay</td>
+<td>@p.getTime</td>
+<td>@p.getTrainer</td>
+<td>@p.getDuration</td>
+<td>@p.getPlaces</td>
+<td>
+<a href="@routes.AdminController.updateTimeSlot(p.getId)" class ="btn-xs btn-danger">
+<span class= "glyphicon glyphicon-pencil"></span>
+</a>
+</td>
+<td>
+<a href="@routes.AdminController.deleteTimeSlot(p.getId)" class="btn-xs btn-danger"
+onclick="return confirmDel();">
+<span class="glyphicon glyphicon-trash"></span>
+</a>
+</td>
+</tr>
+}
+</tbody>
+</table>
+
+<p>
+<a href="@routes.AdminController.addTimeSlot()">
+<button class="btn btn-primary">Add a Time Slot</button>
+</a>
+</p>
+</div>
+</div>
+<script>
+function confirmDel() {
+return confirm('Are you sure?');
+}
+</script>
+}

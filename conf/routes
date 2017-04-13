@@ -1,0 +1,111 @@
+
+# Routes
+# This file defines all application routes (Higher priority routes first)
+
+
+GET     /                           controllers.UserController.index()
+
+GET     /about                      controllers.UserController.about()
+
+GET     /contactUs                  controllers.UserController.contactUs()
+
+GET     /timetable                  controllers.UserController.timetable()
+
+GET     /login                      controllers.security.LoginController.login()
+
+POST    /login                      controllers.security.LoginController.loginSubmit()
+
+GET     /logout                     controllers.security.LoginController.logout()
+
+GET	/addMember		    controllers.UserController.addMember()
+
+POST    /addMemberSubmit	    controllers.UserController.addMemberSubmit()
+
+GET	/addVideo		    controllers.AdminController.addVideo()
+
+POST    /addVideoSubmit	    controllers.AdminController.addVideoSubmit()
+
+GET	/addDiet		    controllers.AdminController.addDiet()
+
+POST    /addDietSubmit	    controllers.AdminController.addDietSubmit()
+
+#Members views
+
+
+GET     /member/appointments                controllers.MemberController.appointments()
+
+GET     /member/addToYourBooking/:id           controllers.MemberController.addToYourBooking(id: Long)
+
+GET     /member/showYourBooking              controllers.MemberController.showYourBooking()
+
+GET     /member/bookAppointment             controllers.MemberController.bookAppointment()
+
+GET    /member/emptyBasket                  controllers.MemberController.emptyBasket()
+
+
+GET     /member/blog                       controllers.MemberController.blog(filter?="")
+
+GET     /member/diet                       controllers.MemberController.diet()
+
+GET     /member/index                      controllers.MemberController.index()
+
+GET     /member/progress                   controllers.MemberController.progress()
+
+GET     /member/video                      controllers.MemberController.video()
+
+GET     /member/about                      controllers.MemberController.about()
+
+GET     /member/contactUs                  controllers.MemberController.contactUs()
+
+GET     /member/timetable                  controllers.MemberController.timetable()
+
+
+# Admin views
+
+GET     /admin/appointments               controllers.AdminController.appointments()
+
+GET     /admin/blog                       controllers.AdminController.blog(filter?="")
+
+GET     /admin/addPost                    controllers.AdminController.addPost
+
+POST	/admin/addPostSubmit		    controllers.AdminController.addPostSubmit()
+
+GET     /admin/deletePost                 controllers.AdminController.deletePost(id: Long)
+
+GET     /admin/updatePost                 controllers.AdminController.updatePost(id: Long)
+
+GET     /admin/diet                       controllers.AdminController.diet()
+
+GET     /admin/index                      controllers.AdminController.index()
+
+GET     /admin/progressList               controllers.AdminController.progressList()
+
+GET     /admin/progress                   controllers.AdminController.progress()
+
+GET     /admin/video                      controllers.AdminController.video()
+
+GET     /admin/timetable                  controllers.AdminController.timetable()
+GET     /admin/about                  controllers.AdminController.about()
+GET     /admin/contactUs                  controllers.AdminController.contactUs()
+
+GET     /admin/members                  controllers.AdminController.vMembers()
+
+GET     /admin/updateMem/:email            controllers.AdminController.updateMem(email: String)
+GET     /admin/deleteMem/:email            controllers.AdminController.deleteMem(email: String)
+
+GET     /admin/timeSlots		controllers.AdminController.timeSlots()
+GET     /admin/addTimeSlot		controllers.AdminController.addTimeSlot()
+POST	/admin/addTimeSlotSubmit	controllers.AdminController.addTimeSlotSubmit()
+GET	/admin/deleteTimeSlot/:id	controllers.AdminController.deleteTimeSlot(id: Long)
+GET	/admin/updateTimeSlot/:id	controllers.AdminController.updateTimeSlot(id: Long)
+
+
+# An example controller showing how to use dependency injection
+GET     /count                      controllers.CountController.count
+# An example controller showing how to write asynchronous code
+GET     /message                    controllers.AsyncController.message
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+

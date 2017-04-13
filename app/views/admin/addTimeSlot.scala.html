@@ -1,0 +1,29 @@
+@import helper._
+@(user: models.users.User, addTimeSlotForm: Form[models.TimeSlot])
+@adminMain("AddTimeSlots", user){
+
+<h3>Add new Time Slot</h3>
+
+@form(action= routes.AdminController.addTimeSlotSubmit(), 'class -> "form-horizontal", 'role->"form"){
+
+                        @inputText(addTimeSlotForm("date"), '_label -> "Date", 'class -> "form-control", 'type -> "date")
+			@inputText(addTimeSlotForm("day"), '_label -> "Day", 'class -> "form-control")
+			@inputText(addTimeSlotForm("time"), '_label -> "Time", 'class -> "form-control")
+			@inputText(addTimeSlotForm("trainer"), '_label -> "Trainer", 'class -> "form-control")
+			@inputText(addTimeSlotForm("duration"), '_label -> "Duration", 'class -> "form-control")
+			@inputText(addTimeSlotForm("places"), '_label -> "Places available", 'class -> "form-control")
+
+@inputText(addTimeSlotForm("id"), '_label -> "", 'hidden -> "hidden")
+
+
+
+<div class="actions">
+<input type="submit" value="Add Time Slot" class="btn btn-primary">
+<a href="@routes.AdminController.timeSlots()">
+<button class="btn btn-warning">Cancel</button>
+</a>
+</div>
+
+}
+
+}

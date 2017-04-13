@@ -1,0 +1,45 @@
+@(user: models.users.User)
+@adminMain("contactUs", user){
+
+    <div class="container" id ="bodycontainer">
+        <div class="row">
+
+            <h2 class = "pull-left fancytextsmall">Contact Us</h2>
+            <div class="clearfix"></div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+
+                <form action="mailto:barbara.bollardoutlook.com" method="post" enctype="text/plain">
+                    Name:<br>
+                    <input type="text" name="name"><br>
+                    E-mail:<br>
+                    <input type="text" name="mail"><br>
+                    Phone:<br>
+                    <input type="text" name="number"><br>
+                    Comment:<br>
+                    <textarea rows="4" cols="50" name="comment" size="150"></textarea><br><br>
+                    <input type="submit" value="Send">
+                    <input type="reset" value="Reset">
+                </form>
+
+            </div>
+
+
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <h4>DC BodyBliss</h4>
+                <p>55 The Square Q
+                    <br>Tallaght
+                    <br>Dublin 24
+                    <br>Phone: 01-2405456
+                    <br>Email: DC@@live.co.uk
+
+
+            </div>
+
+
+        </div>
+    </div>
+}

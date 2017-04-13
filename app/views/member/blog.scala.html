@@ -1,0 +1,36 @@
+@(user: models.users.User, blog: List[models.BlogPost], env: play.api.Environment, filter: String)
+@mMain("Blog", user){
+
+ <div class="row">
+                <div class="col-sm-12">
+                    <div class="well">
+                        <div id="actions">
+                            <form action="@routes.MemberController.blog()" method="GET">
+                                <input type="search" id="searchbox" name="filter" value="@filter" placeholder="Filter by post title...">
+                                <input type="submit" id="searchsubmit" value="Filter by title" class="btn-md btn-primary">
+                            </form>
+                        </div>
+
+
+                        <h4>New Post</h4>
+
+                        @for(p <- blog ) {
+                            <p>@p.getTitle</p>
+                            <p>@p.getCategory</p>
+                            <p>
+                                @if(env.resource("public/images/postImages/" + p.getId + ".jpg").isDefined){
+                                    <img src = "/assets/images/postImages/@(p.getId + ".jpg")"/>
+                                }
+                            </p>
+                        <div>
+@Html(p.getText)
+</div>
+                        <p>
+@p.getPosted.format("dd-MMM-YYYY")
+</p>
+
+}
+</div>
+</div>
+</div>
+    }

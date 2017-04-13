@@ -1,0 +1,23 @@
+@import helper._
+@(user: models.users.User, addVideoForm: Form[models.Video])
+@main("Add Video", user){
+
+    <h3> Add Video </h3>
+
+
+    @form(action = routes.AdminController.addVideoSubmit(), 'class -> "form-horizontal", 'role ->"form") {
+
+        @inputText(addVideoForm("url"), '_label -> "Add url", 'class -> "form-control")
+
+
+        <div class="actions">
+            <input type = "submit" value = "Add Video" class="btn btn-primary">
+            <a href="@routes.AdminController.video()"
+            <button class="btn btn-warning"> Cancel </button>
+            </a>
+        </div>
+
+    }
+
+
+}

@@ -1,0 +1,136 @@
+@(user: models.users.User, diet: List [models.Diet], env: play.api.Environment))
+@adminMain("Diet", user){
+
+    <!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <title>Diet</title>
+            <meta charset="utf-8">
+            <link rel="stylesheet" type="text/css" href="ca.css">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+
+                <!-- <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("stylesheet/ca.css")">-->
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <link href="https://fonts.googleapis.com/css?family=Ranga" rel="stylesheet">
+            <style>
+            /* Remove the navbar's default margin-bottom and rounded borders */
+            .navbar {
+                margin-bottom: 0;
+                border-radius: 0;
+            }
+            footer{
+                background-color:#999999;
+            }
+            .footerinfo{
+                padding-top: 1em;
+            }
+            footer a{
+                color: black;
+            }
+
+            footer a:visited{
+                color: black;
+            }
+
+            footer a:hover{
+                color: white;
+            }
+            footer p{
+                color: black;
+
+            }
+            </style>
+        </head>
+        <body>
+
+            @for(d <- diet ) {
+                <p>@d.getSrc</p>
+
+                <p>
+                    @if(env.resource("public/images/diets/" + d.getId + ".jpg").isDefined){
+                        <img src = "/assets/images/s/@(d.getId + ".jpg")"/>
+                    }
+                }
+        </p>
+
+                <!--Start of 6 small squares-->
+            <div class="container text-center"><br>
+                <div class="row">
+
+                    <div class="col-sm-4">
+                        <p><b>DIET 1</b></p>
+                        <a href="@routes.AdminController.addDiet()">
+                            <button class="btn btn-primary">Change Diet</button>
+                        </a>
+                        <img src="@routes.Assets.versioned("diets/diet1.jpg")" class="img-responsive" style="width:100%;height:100%;" alt="Image"></a>
+
+                    </div><!--column end-->
+
+                    <div class="col-sm-4">
+                        <p><b>Diet 2</b></p>
+                        <a href="@routes.AdminController.addDiet()">
+                            <button class="btn btn-primary">Change Diet</button>
+                        </a>
+                        <img src="@routes.Assets.versioned("diets/diet2.jpg")" class="img-responsive" style="width:100%;height:100%;" alt="Image"></a>
+
+                    </div><!--column end-->
+
+                    <div class="col-sm-4">
+                        <p><b>Diet 3</b></p>
+                        <a href="@routes.AdminController.addDiet()">
+                            <button class="btn btn-primary">Change Diet</button>
+                        </a>
+                        <img src="@routes.Assets.versioned("diets/diet3.jpg")" class="img-responsive" style="width:100%;height:100%;" alt="Image"></a>
+
+                    </div><!--column end-->
+
+                </div><!--row-->
+
+                    <!--new row-->
+                <div class="row">
+
+                    <div class="col-sm-4">
+                        <b>
+                            <p><b>Diet 4</b></p>
+                            <a href="@routes.AdminController.addDiet()">
+                                <button class="btn btn-primary">Change Diet</button>
+                            </a>
+                            <img src="@routes.Assets.versioned("diets/diet4.jpg")" class="img-responsive" style="width:100%;height:100%;" alt="Image"></a>
+
+
+                    </div><!--column end-->
+
+                    <div class="col-sm-4">
+                        <br>
+                        <p><b>Diet 5</b></p>
+                        <a href="@routes.AdminController.addDiet()">
+                            <button class="btn btn-primary">Change Diet</button>
+                        </a>
+                        <img src="@routes.Assets.versioned("diets/diet5.jpg")" class="img-responsive" style="width:100%;height:100%;" alt="Image"></a>
+
+
+                    </div><!--column end-->
+
+                    <div class="col-sm-4">
+                        <br>
+                        <p><b>Diet 6</b></p>
+                        <a href="@routes.AdminController.addDiet()">
+                            <button class="btn btn-primary">Change Diet</button>
+                        </a>
+                        <img src="@routes.Assets.versioned("diets/diet6.jpg")" class="img-responsive" style="width:100%;height:100%;" alt="Image"></a>
+
+                    </div><!--column end-->
+
+                </div><!--row end-->
+
+            </div><!--container end-->
+            <br>
+
+
+
+        </body>
+    </html>
+}

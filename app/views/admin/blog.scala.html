@@ -1,0 +1,53 @@
+@(user: models.users.User, blog: List[models.BlogPost], env: play.api.Environment, filter: String)
+@adminMain("Blog", user){
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="well">
+                        <div id="actions">
+                            <form action="@routes.AdminController.blog()" method="GET">
+                                <input type="search" id="searchbox" name="filter" value="@filter" placeholder="Filter by post title...">
+                                <input type="submit" id="searchsubmit" value="Filter by title" class="btn-md btn-primary">
+                            </form>
+                        </div>
+
+                        <p>
+                            <a href="@routes.AdminController.addPost()">
+                                <button class="btn btn-primary">Add post</button>
+                            </a>
+                        </p>
+                        <h4>New Post</h4>
+
+                        @for(p <- blog ) {
+                            <p>@p.getTitle</p>
+                            <p>@p.getCategory</p>
+                            <p>
+                                @if(env.resource("public/images/postImages/" + p.getId + ".jpg").isDefined){
+                                    <img src = "/assets/images/postImages/@(p.getId + ".jpg")"/>
+                                }
+                            </p>
+                       <div>
+@Html(p.getText)
+</div>
+                        <p>
+@p.getPosted.format("dd-MMM-YYYY")
+</p>
+                         <p>  <a href="@routes.AdminController.deletePost(p.getId)", onclick="return  confirmDel();" >
+                                <button class="btn btn-primary">Delete post</button>
+                            </a>
+                             <a href="@routes.AdminController.updatePost(p.getId)">
+                                 <button class="btn btn-primary">Update post</button>
+                             </a>
+                         </p>
+                        }
+                    </div>
+                </div>
+
+                <script>
+                    function confirmDel() {
+                        return confirm('Are you sure?');
+                    }
+                </script>
+    </div>
+
+}

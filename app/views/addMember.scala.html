@@ -1,0 +1,44 @@
+@import helper._
+@(user: models.users.User, addMemberForm: Form[models.users.Member])
+@main("Add Member", user){
+
+<h3> Registration Form </h3>
+
+
+@form(action = routes.UserController.addMemberSubmit(), 'class -> "form-horizontal", 'role ->"form") {
+
+@inputText(addMemberForm("email"), '_label -> "Email address", 'class -> "form-control")
+@inputText(addMemberForm("role"), '_label -> "Role", 'class -> "form-control")
+@inputText(addMemberForm("firstName"), '_label -> "First name", 'class -> "form-control")
+@inputText(addMemberForm("lastName"), '_label -> "Last name", 'class -> "form-control")
+@inputText(addMemberForm("password"), '_label -> "Password", 'class -> "form-control")
+@inputText(addMemberForm("addressLine1"), '_label -> "addressLine1", 'class -> "form-control")
+@inputText(addMemberForm("addressLine2"), '_label -> "addressLine2", 'class -> "form-control")
+@inputText(addMemberForm("addressLine3"), '_label -> "addressLine3", 'class -> "form-control")
+@inputText(addMemberForm("phoneNumber"), '_label -> "phoneNumber", 'class -> "form-control")
+@inputText(addMemberForm("medicalCondition"), '_label -> "Medical Condition", 'class -> "form-control")
+@inputText(addMemberForm("doctorsName"), '_label -> "Doctor's name", 'class -> "form-control")
+@inputText(addMemberForm("doctorsPhone"), '_label -> "Doctor's Phone Number", 'class -> "form-control")
+@inputText(addMemberForm("emergencyName"), '_label -> "Emergency contact name", 'class -> "form-control")
+@inputText(addMemberForm("emergencyPhone"), '_label -> "Emergency contact number", 'class -> "form-control")
+@inputText(addMemberForm("relationship"), '_label -> "Relationship to you", 'class -> "form-control")
+@inputText(addMemberForm("securityQuestion"), '_label -> "Security Question", 'class -> "form-control")
+@inputText(addMemberForm("securityAnswer"), '_label -> "Answer to the security question", 'class -> "form-control")
+
+
+<div class="actions">
+<input type = "submit" value = "Add Member" class="btn btn-primary">
+<a href="@routes.UserController.index()">
+<button class="btn btn-warning"> Cancel </button>
+</a>
+</div>
+
+
+
+
+
+
+}
+
+
+}

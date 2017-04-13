@@ -1,0 +1,47 @@
+@(user: models.users.User, order: models.BookingOrder)
+
+@mMain("Booking Confirmation", user) {
+
+
+    <div class="row">
+
+        <div class="col-md-12">
+        @if(flash.containsKey("success")) {
+            <div class="alert alert-success">
+            @flash.get("success")
+            </div>
+        }
+
+<table class="table table-bordered table-hover table-condensed">
+    <thead>
+            <!-- The header row-->
+        <tr>
+            <th>Date</th>
+            <th>Day</th>
+            <th>Time</th>
+            <th>Trainer</th>
+            <th>Places</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if(order != null) {
+
+            @for(i <- order.getItems){
+
+            <tr>
+                <td>@i.getTimeSlot.getDate.format("dd-MMM-YYYY")</td>
+                <td>@i.getTimeSlot.getDay()</td>
+                <td>@i.getTimeSlot.getTime</td>
+                <td>@i.getTimeSlot.getTrainer()</td>
+                <td>@i.getQuantity()</td>
+            </tr>
+            }
+        }
+            </tbody>
+    </table>
+
+           </div>
+    </div>
+
+
+}

@@ -1,0 +1,32 @@
+@import helper._
+
+@(addPostForm: Form[models.BlogPost], user: models.users.User)
+
+@adminMain("Add Post", user){
+    <div class ="row">
+        <div class="col-sm-12">
+            <div class="well">
+                <h4>Add a new Post</h4>
+                @form(action= routes.AdminController.addPostSubmit(), 'class -> "form-horizontal", 'role->"form", 'enctype -> "multipart/form-data"){
+
+                    @inputText(addPostForm("title"), '_label -> "Title", 'class -> "form-control")
+                    @inputText(addPostForm("category"), '_label -> "Category", 'class -> "form-control")
+                    @textarea(addPostForm("text"), '_label -> "Text", 'class -> "form-control", 'rows -> 15, 'cols -> 50)
+                    @inputDate(addPostForm("posted"), '_label -> "Date", 'class -> "form-control", 'type -> "date")
+
+                    @inputText(addPostForm("id"), '_label -> " ", 'hidden -> "hidden")
+                    <label>Image upload</label>
+                    <input class = "btn-sm btn-default" type="file" name="upload">
+                    <br><br>
+
+                    <div class="actions">
+                        <input type="submit" value="Add Post" class = "btn btn-primary">
+                        <a href="@routes.AdminController.index()"
+                        <button class="btn btn-warning">Cancel</button>
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}
